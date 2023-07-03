@@ -23,14 +23,12 @@ export class UserProfileComponent {
     getUser(): void {
         this.fetchApiData.getUser(localStorage.getItem("user") || "").subscribe((resp: any) => {
             this.user = resp;
-            console.log(this.user);
             return this.user;
         });
     }
 
     updateUser(): void {
         this.fetchApiData.editUser(localStorage.getItem("user") || "", this.userData).subscribe((resp: any) => {
-            console.log(resp);
             this.snackBar.open("Successfully changed userdata", 'OK', {
                 duration: 4000
             });

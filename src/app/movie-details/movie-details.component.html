@@ -1,0 +1,14 @@
+<mat-card>
+    <mat-dialog-content>
+        <mat-card-header>
+            <mat-card-title>{{data.title}}</mat-card-title>
+        </mat-card-header>
+        <p>Year: {{data.year}}</p>
+        <h3>Actors:</h3>
+        <div *ngFor="let actor of data.actors;">
+            <p>{{actor}}</p>
+        </div>
+        <h3>Description:</h3>
+        <p>{{data.description}}</p>
+    </mat-dialog-content>
+</mat-card>

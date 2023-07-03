@@ -21,6 +21,9 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { RouterModule, Routes } from '@angular/router';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { GenreComponent } from './genre/genre.component';
+import { DirectorComponent } from './director/director.component';
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
 
 const appRoutes: Routes = [
     { path: "welcome", component: WelcomePageComponent },
@@ -36,7 +39,10 @@ const appRoutes: Routes = [
         UserLoginFormComponent,
         MovieCardComponent,
         WelcomePageComponent,
-        UserProfileComponent
+        UserProfileComponent,
+        GenreComponent,
+        DirectorComponent,
+        MovieDetailsComponent
     ],
     imports: [
         RouterModule.forRoot(appRoutes),
