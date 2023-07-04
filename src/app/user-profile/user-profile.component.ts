@@ -16,9 +16,17 @@ export class UserProfileComponent {
         public snackBar: MatSnackBar
     ) { }
 
+    /**
+     * Call getUser ofter loading page
+     */
+
     ngOnInit(): void {
         this.getUser();
     }
+
+    /**
+     * Get user details from localStorage
+     */
 
     getUser(): void {
         this.fetchApiData.getUser(localStorage.getItem("user") || "").subscribe((resp: any) => {
@@ -26,6 +34,10 @@ export class UserProfileComponent {
             return this.user;
         });
     }
+
+    /**
+     * Update user details to API
+     */
 
     updateUser(): void {
         this.fetchApiData.editUser(localStorage.getItem("user") || "", this.userData).subscribe((resp: any) => {

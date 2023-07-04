@@ -28,15 +28,28 @@ export class MovieCardComponent {
         this.getFavoriteMovies();
     }
 
+    /**
+     * Navigate to profile
+     */
+
     goToProfile(): void {
         this.router.navigate(["profile"]);
     }
+
+    /**
+     * Logout user and return to welcome page
+     */
 
     logout(): void {
         localStorage.removeItem("user");
         localStorage.removeItem("token");
         this.router.navigate(["welcome"]);
     }
+
+    /**
+     * Get all movies from API
+     * @returns movies
+     */
 
     getMovies(): void {
         this.fetchApiData.getAllMovies().subscribe((resp: any) => {
@@ -45,12 +58,22 @@ export class MovieCardComponent {
         });
     }
 
+    /**
+     * Get users favorite movies
+     * @returns favouriteMovies
+     */
+
     getFavoriteMovies(): void {
         this.fetchApiData.getFavouriteMovies(localStorage.getItem("user") || "").subscribe((resp: any) => {
             this.favoriteMovies = resp;
             return this.favoriteMovies;
         })
     }
+
+    /**
+     * Add or remove movie from favorite list
+     * @param id 
+     */
 
     toggleFavorite(id: string): void {
         if (this.favoriteMovies.includes(id)) {
@@ -72,6 +95,11 @@ export class MovieCardComponent {
         }
     }
 
+    /**
+     * Open genre dialogue
+     * @param genre 
+     */
+
     openGenre(genre: any): void {
         this.dialog.open(GenreComponent, {
             maxWidth: "600px",
@@ -79,12 +107,22 @@ export class MovieCardComponent {
         })
     }
 
+    /**
+     * Open director dialogue
+     * @param director 
+     */
+
     openDirector(director: any): void {
         this.dialog.open(DirectorComponent, {
             maxWidth: "600px",
             data: director
         })
     }
+
+    /**
+     * Open movie details dialouge
+     * @param movie 
+     */
 
     openMovie(movie: any): void {
         this.dialog.open(MovieDetailsComponent, {
