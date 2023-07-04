@@ -1,4 +1,4 @@
-# MyFlixAngularClient
+# MyFlix Angular Client
 
 ![Screenshot](screenshot.png)
 
